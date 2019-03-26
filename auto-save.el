@@ -127,7 +127,6 @@ avoid delete current indent space when you programming."
   (interactive)
   (let ((autosave-buffer-list))
     (ignore-errors
-      (save-excursion
         (dolist (buf (buffer-list))
           (set-buffer buf)
           (when (and
@@ -158,7 +157,7 @@ avoid delete current indent space when you programming."
             (message "# Saved %d files: %s"
                      (length autosave-buffer-list)
                      (mapconcat 'identity autosave-buffer-list ", ")))))
-        ))))
+        )))
 
 (defun auto-save-delete-trailing-whitespace-except-current-line ()
   (interactive)
