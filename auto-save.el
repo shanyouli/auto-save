@@ -113,6 +113,11 @@
   :type 'boolean
   :group 'auto-save)
 
+(defcustom auto-save-enable-p nil
+  "Determine if auto-save-enable is started."
+  :type 'boolean
+  :group 'auto-save)
+
 (defcustom auto-save-delete-trailing-whitespace nil
   "Delete trailing whitespace when save if this option is non-nil.
 Note, this option is non-nil, will delete all training whitespace execpet current line,
@@ -176,6 +181,7 @@ avoid delete current indent space when you programming."
 
 (defun auto-save-enable ()
   (interactive)
+  (setq auto-save-enable-p t)
   (run-with-idle-timer auto-save-idle t #'auto-save-buffers)
   (add-hook 'before-save-hook 'auto-save-delete-trailing-whitespace-except-current-line)
   (add-hook 'before-save-hook 'font-lock-flush)
