@@ -179,6 +179,7 @@ avoid delete current indent space when you programming."
             (narrow-to-region (1+ end) (point-max))
             (delete-trailing-whitespace)))))))
 
+;;;###autoload
 (defun auto-save-enable ()
   (interactive)
   (setq auto-save-enable-p t)
