@@ -149,7 +149,8 @@ avoid delete current indent space when you programming."
             (if auto-save-silent
                 (with-temp-message
                     (with-current-buffer " *Minibuf-0*" (buffer-string))
-                  (basic-save-buffer))
+                  (let ((inhibit-message t))
+                    (basic-save-buffer)))
               (basic-save-buffer))
             ))
         ;; Tell user when auto save files.
